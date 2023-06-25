@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  
+    <title>Tables</title>
+    <!-- BEGIN PAGE STYLE -->
+    <link href="/assets/global/plugins/datatables/dataTables.min.css" rel="stylesheet">
+    <link href="/assets/global/css/style.css" rel="stylesheet">
+    <link href="/assets/global/css/ui.css" rel="stylesheet">
+
+  </head>
+
+  <body class="sidebar-condensed fixed-topbar fixed-sidebar theme-sdtl color-default">
+
+    <section>
+    
+      <div class="main-content">
+     
+        <!-- BEGIN PAGE CONTENT -->
+        <div class="page-content">
+          <div class="header">
+            <h2>Tables <strong>Dynamic</strong></h2>
+           
+          </div>
+          <div class="row">
+            <div class="col-lg-12 portlets">
+              <div class="panel">
+                <div class="panel-header panel-controls">
+                  <h3><i class="fa fa-table"></i> <strong>Sorting </strong> table</h3>
+                </div>
+                <div class="panel-content pagination2 table-responsive">
+                  <table class="table table-hover table-dynamic">
+                    <thead>
+                      <tr>
+                        <th>CompanyId</th>
+                        <th>Company Name</th>
+                        <th>Model</th>
+                        <th>Generation</th>
+                        <th>Manufacturing Date</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <% data.map((item,index)=>{ %> 
+                            <tr>
+                             <td><b><%=item.companyid %></b></td>
+                             <td><b><%=item.companyname %></b></td>
+                             <td><b><%=item.model %></b></td>
+                             <td><b><%=item.generation %></b></td>
+                             <td><b><%=item.manufacturingdate %></b></td>
+                             <td><b><%=item.description %></b></td>
+                             </tr>
+                        <%})%>                    
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+      
+         
+        </div>
+        <!-- END PAGE CONTENT -->
+      </div>
+      <!-- END MAIN CONTENT -->
+    
+    </section>
+ 
+  
+  
+    <script src="/assets/global/plugins/jquery/jquery-3.1.0.min.js"></script>
+    <script src="/assets/global/plugins/jquery/jquery-migrate-3.0.0.min.js"></script>
+    <script src="/assets/global/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+
+    <script src="/assets/global/js/application.js"></script> <!-- Main Application Script -->
+    <script src="/assets/global/js/plugins.js"></script> <!-- Main Plugin Initialization Script -->
+    <!-- BEGIN PAGE SCRIPTS -->
+    <script src="/assets/global/plugins/datatables/jquery.dataTables.min.js"></script> <!-- Tables Filtering, Sorting & Editing -->
+    <script src="/assets/global/plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="/assets/global/js/pages/table_dynamic.js"></script>
+    <!-- END PAGE SCRIPTS -->
+   
+  </body>
+</html>

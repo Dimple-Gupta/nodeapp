@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <center>
+            <h3><%=data.companyname%> <%=data.model%></h3><br>
+            <form action='/product/editimage' method='post' enctype="multipart/form-data" >
+            <input type='hidden' value='<%=data.companyid%>' name='companyid'>
+            <img src='/images/<%=data.pictures%>'width='200'><br><br>
+            <b>Select New Image</b><br>
+            <input type='file' name='pictures' required><br><br>
+            <input type='submit' value='Update picture'>
+            </form>
+        </center>
+    </body>
+</html>
