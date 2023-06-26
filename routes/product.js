@@ -13,7 +13,7 @@ router.post('/insertrecord',upload.single('picture'),function(req,res){
   console.log('FILE',req.file)
   console.log(req.body.myfilename)
   console.log('error')
-  pool.query('insert into company(companyname, model, generation1,generation2, manufacturingdate, description, aboutcompany, emailid, mobileno, price, picture) values(?,?,?,?,?,?,?,?,?,?,?)',[req.body.companyname,req.body.model,req.body.generation1,req.body.generation2,req.body.manufacturingdate,req.body.description,req.body.aboutcompany,req.body.emailid,req.body.mobileno,req.body.price,req.body.myfilename],function(error,result){
+  pool.query('insert into company(companyname, model, generation, manufacturingdate, description, aboutcompany, emailid, mobileno, price, picture) values(?,?,?,?,?,?,?,?,?,?)',[req.body.companyname,req.body.model,req.body.generation,req.body.manufacturingdate,req.body.description,req.body.aboutcompany,req.body.emailid,req.body.mobileno,req.body.price,req.body.myfilename],function(error,result){
      if(error)
      {
        console.log('Error:',error)
@@ -32,7 +32,7 @@ router.get('/editdeleterecord', function(req, res, next) {
   var btn=req.query.btn;
   if(btn=='Edit')
   {
-  pool.query('update company set companyname=?, model=?, generation1=?, generation2=?, manufacturingdate=?, description=?, abooutcompany=?, emailid=?, mobileno=?, price=? where companyid=?',[req.query.companyname,req.query.model,req.query.generation1,req.query.generation2,req.query.manufacturingdate,req.query.description,req.query.aboutcompany,req.query.emailid,req.query.mobileno,req.query.price,req.query.companyid],function(error,result){
+  pool.query('update company set companyname=?, model=?, generation=?, manufacturingdate=?, description=?, abooutcompany=?, emailid=?, mobileno=?, price=? where companyid=?',[req.query.companyname,req.query.model,req.query.generation,req.query.manufacturingdate,req.query.description,req.query.aboutcompany,req.query.emailid,req.query.mobileno,req.query.price,req.query.companyid],function(error,result){
   if(error)
   {res.redirect('/product/displayall')}
   else
@@ -70,7 +70,7 @@ router.get('/displayall', function(req, res, next) {
  });
 
  router.get('/displaybyid', function(req, res, next) {
-  pool.query("select * from company where customerid=?",[req.query.companyid],function(error,result){
+  pool.query("select * from company where companyid=?",[req.query.companyid],function(error,result){
  
  if(error)
  {  res.render('productdisplaybyid',{data:[]});}
